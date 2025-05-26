@@ -14,5 +14,5 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/advertisement/, '/advertisement'),
       }
     }
-  }а
+  }
 })
