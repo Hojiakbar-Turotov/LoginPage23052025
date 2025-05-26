@@ -1,0 +1,18 @@
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  server: {
+    proxy: {
+      '/advertisement': {
+        target: 'https://testpsyedu.limsa.uz',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\/advertisement/, '/advertisement'),
+      }
+    }
+  }а
+})
