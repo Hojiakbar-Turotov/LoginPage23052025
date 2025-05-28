@@ -40,7 +40,8 @@ export default function News() {
             setModal(false);
             reset();
             setFile(null);
-            getNews();
+            await getNews(); // Ma'lumot yangilanadi
+            setVideos(true); // Ro'yxat qayta ko'rsatiladi
         } catch (error) {
             console.error("Yangilik qo'shishda xatolik:", error);
         }
@@ -53,7 +54,7 @@ export default function News() {
                 <button
                     onClick={() => {
                         setModal(!modal);
-                        setVideos(!videos)
+                        setVideos(modal);
                     }}
                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
                 >
@@ -120,12 +121,12 @@ export default function News() {
                             >
                                 Cancel
                             </button>
-                            {/* <button
+                            <button
                                 type="submit"
                                 className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
                             >
                                 Add
-                            </button> */}
+                            </button>
                         </div>
                     </form>
                 </div>
